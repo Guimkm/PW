@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+<style>
+    body {
+        background-image: linear-gradient(rgb(255, 255, 255), rgb(207, 207, 207));
+    }</style>
+
+<Center>
+    <h1>Formulario</h1>
+    <p>-----</p>
+
+<!-- As tags <label>, <fieldset> e <legend> são utilizadas exclusivamente nos formulários e diferem um 
+    pouco das tags que estudamos até o momento. Basicamente, elas funcionam como marcações e rótulos 
+    para os elementos que criamos em nossos formulários.
+    No primeiro exemplo dessa aula nós utilizamos o texto “Tipo fisico” em uma tag <p> para criar o 
+    rótulo do ComboBox. Na prática isso funciona, mas seria mais correto substituir a tag <p> pela 
+    <label> que foi criada justamente para essa finalidade.
+        
+    As tags <fieldset> e <legend> trabalham em conjunto e servem para criarmos uma divisão dos 
+    elementos dentro do nosso formulário. Imagine, por exemplo, que você precise criar um 
+    formulário de cadastro com diversos campos para o usuário preencher. Em situações como  
+    essa é muito provável que você consiga separar os campos por categorias, podendo ser, por 
+    exemplo, dados pessoais e dados profissionais. Vamos a um exemplo bem simples para 
+    compreendermos essa ideia.-->
+
+<p><h3>Dados pessoais</h3></p>
+
+    <label>Nome: <input type="text" name="nome" placeholder="Digite seu nome aqui" /></label><br />
+
+   <p><label> Idade: <input type="text" name="idade" placeholder="Digite sua idade aqui" /></label><br /></p> 
+
+    <label>Email: <input type="text" name="nome" placeholder="Digite seu email aqui" /></label><br />
+
+<p><h3>Dados profissionais</h3></p>
+
+<p>Tipo fisico:
+<select name="tipo de fisico">
+
+     <option value="A"> Ectomorfo </option>
+     <option value="B"> Mesomorfo </option>
+     <option value="C"> Endomorfo </option></select></p> 
+
+    <div class="radio-container">
+        <input type="radio" value="1" name="curso"  onclick="mostrarMensagem()">
+        <label for="opcao1">DS AMS</label>
+    </div>
+    <div>
+    <div id="mensagem"></div>
+    <script>
+        function mostrarMensagem() {
+            // Seleciona o elemento da mensagem
+            const elementoMensagem = document.getElementById('mensagem');
+            
+            // Define o texto da mensagem
+            elementoMensagem.textContent = "Você é do DS AMS e acha mesmo que vai achar tempo pra treinar. Vai trabalhar q depois piora. E não se preocupe VOCÊ É AMS ENTÃO SE VIRA!";
+            // Mostra a mensagem
+            elementoMensagem.style.display = 'block';
+            
+            // Configura o temporizador para esconder a mensagem após 7 segundos
+            setTimeout(function() {
+                elementoMensagem.style.display = 'none';
+                
+                // Desmarca o radio button após a mensagem sumir
+                document.getElementById('1').checked = false;
+            }, 7000); // 7000 milissegundos = 7 segundos
+        }
+    </script>
+<input type="radio" name="curso" value="2" /> ADM
+<input type="radio" name="curso" value="3" /> LOG
+<input type="radio" name="curso" value="4" /> DS manhã
+</div>
+<!--Todos os atributos name do grupo devem conter o mesmo nome.
+Em contrapartida, no atributo value, os valores precisam diferentes,
+pois são eles que serão gravados posteriormente no banco de dados da aplicação.-->
+<div>
+<p>Quais são os físicos que você pretende ter</p>
+<p><input type="checkbox" name="area1" value="com" /> Men's Physique
+<input type="checkbox" name="area2" value="eng" /> Classic Physique
+<input type="checkbox" name="area3" value="bio" /> Wellness
+<input type="checkbox" name="area4" value="psi" /> recuperação em geral</p>
+</div>
+
+<p><h4>Observações:</h4></p>
+<textarea name="obs" placeholder="Digite suas preferencias e sua situação para treinos mais adaptados" cols="30" rows="5"></textarea>
+
+
+ <p><button type="submit">Enviar</button>
+    <input type ="reset" value="Limpar" />
+</p>
+
+<a href="tabela.html" target="_blank">tabela</a>
+</form>
+
+</Center>
+
+</body>
+</html>
